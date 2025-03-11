@@ -1,0 +1,49 @@
+1. HTML Structure
+   Use semantic elements:
+
+<header>, <nav>, <main>, <section>, and <footer>.
+
+Create a clear heading hierarchy using <h1> to <h6>.
+
+## Use emphasis tags like <strong> and <em> where appropriate.
+
+2. CSS Styling
+   Apply CSS Box Model concepts:
+
+Use margin, padding, and border for spacing and sizing.
+
+Use relative units (rem or em) for font sizes and spacing.
+
+Create a card-style layout for at least one section:
+
+## Add a box-shadow, padding, and rounded corners.
+
+3. Flexbox Layout
+   Build a responsive navigation menu using Flexbox:
+
+Ensure it adapts to different screen sizes.
+
+Implement a multi-column layout for your main content using Flexbox.
+
+## Use Flexbox to center content both vertically and horizontally in at least one section.
+
+4. Form Design
+   Create a form with the following input types:
+
+Text (<input type="text">)
+
+Email (<input type="email">)
+
+Password (<input type="password">)
+
+Checkbox (<input type="checkbox">)
+
+Radio buttons (<input type="radio">)
+
+Style form elements with hover and focus states:
+
+Change background color, border, or add transitions.
+
+Implement basic form validation using HTML5 attributes:
+
+Use required, minlength, pattern, etc.
