@@ -1,1 +1,58 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+:root {
+  --primary-color: #f28fa0;
+  --secondary-color: #d6d7dc;
+  --dark-color: #333;
+  --light-color: #f4f4f4;
+}
+
+header {
+  background: url("https://images.unsplash.com/photo-1490367605959-06955305859b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHBpbmt8ZW58MHwwfDB8fHww")
+    center;
+  background-size: cover;
+  height: 80vh;
+  position: relative; /* for absolute positioning of the h1 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-attachment: fixed;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: var(--primary-color);
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  position: sticky;
+}
+
+/* Custom Shape Divider */
+
+.custom-shape-divider-bottom-1741683656 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1741683656 svg {
+  position: relative;
+  display: block;
+  width: calc(113% + 1.3px);
+  height: 68px;
+}
+
+.custom-shape-divider-bottom-1741683656 .shape-fill {
+  fill: #ffffff;
+}
