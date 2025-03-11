@@ -14,41 +14,70 @@ body {
 
 button {
   cursor: pointer;
+  background-color: var(--light-color);
+  color: var(--primary-color);
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 10rem;
+  margin: 1rem;
+  transition: var(--transition);
+  font-size: medium;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+}
+button:hover {
   background-color: var(--primary-color);
   color: var(--light-color);
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  margin: 1rem;
+  transform: rotate(2deg) scale(1.1);
+}
+
+p {
+  font-size: 1.4rem;
 }
 
 :root {
-  --primary-color: #f28fa0;
-  --secondary-color: #d6d7dc;
-  --dark-color: #333;
-  --light-color: #f4f4f4;
+  --primary-color: #d58d8d;
+  --secondary-color: #a78bfa;
+  --dark-color: #3f306a;
+  --light-color: #f9f9f9;
+  --border: 1px solid var(--dark-color);
+  --border-radius: 15px;
+  --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --transition: all 0.2s ease;
 }
 /* navigation styles */
 nav {
   display: flex;
   gap: 1rem;
-  border: 1px solid var(--color-primary);
+  border: 1px solid var(--dark-color);
   padding: 1rem 1.5rem;
-  align-items: center;
+  justify-content: space-between; /* Ensure space between logo and nav items */
+  align-items: center; /* Ensure items are centered vertically */
   position: sticky;
   top: 0%;
   z-index: 10; /* Ensure nav is above other elements */
   background-color: var(--light-color);
+  box-shadow: var(--shadow);
 }
-nav p {
+#logo {
   font-weight: bolder;
   font-size: 1.5rem;
   color: var(--primary-color);
+  margin: 0; /* Remove any default margin */
 }
 nav ul {
   display: flex;
   gap: 1rem;
   list-style: none;
+  font-size: large;
+  font-weight: 600;
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--secondary-color);
 }
 
 ul:nth-child(2) {
@@ -56,28 +85,32 @@ ul:nth-child(2) {
 }
 
 header {
-  background-image: linear-gradient(
-    -225deg,
-    #69eacb 0%,
-    #eaccf8 48%,
-    #6654f1 100%
+  background: rgb(167, 139, 250);
+  background: linear-gradient(
+    90deg,
+    rgba(167, 139, 250, 1) 10%,
+    rgba(213, 141, 141, 1) 100%
   );
   background-size: cover;
   height: 80vh;
-  position: relative; /* for absolute positioning of the h1 */
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
-  background-attachment: fixed;
   z-index: 1; /* Ensure header is below nav */
 }
 
 header h1 {
   font-size: 3rem;
-  color: var(--primary-color);
+  color: var(--light-color);
   text-align: center;
   text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+header p {
+  color: var(--light-color);
+  text-align: center;
   margin-bottom: 1rem;
 }
 
@@ -102,4 +135,206 @@ header h1 {
 
 .custom-shape-divider-bottom-1741683656 .shape-fill {
   fill: var(--light-color);
+}
+
+.custom-shape-divider-top-1741692508 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 1; /* Ensure shape divider is below footer content */
+}
+
+.custom-shape-divider-top-1741692508 svg {
+  position: relative;
+  display: block;
+  width: calc(113% + 1.3px);
+  height: 68px;
+}
+
+.custom-shape-divider-top-1741692508 .shape-fill {
+  fill: var(--light-color);
+}
+
+section {
+  padding: 10rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Ensure section takes full width */
+}
+
+section h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  text-align: center; /* Center text horizontally */
+}
+
+.textarea p {
+  color: var(--dark-color);
+  text-align: center; /* Center text horizontally */
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  gap: 3rem; /* Adds spacing between items */
+  justify-content: center; /* Centers items horizontally */
+  align-items: stretch; /* Ensures all cards in a row have the same height */
+  width: 100%; /* Ensure container takes full width */
+}
+
+article {
+  background-color: var(--secondary-color);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition), transform 0.3s ease;
+  width: 300px; /* Fixed width for all cards */
+  flex-grow: 1; /* Allows cards to grow if there's extra space */
+  height: auto; /* Allows cards to stretch to the same height */
+  overflow: hidden; /* Hides overflowing content */
+}
+
+article h3 {
+  font-size: 1.5rem;
+  color: var(--light-color);
+  margin-bottom: 1rem;
+}
+
+article p {
+  color: var(--light-color);
+  margin-bottom: 1rem;
+}
+
+article a {
+  margin-top: auto; /* Pushes the button to the bottom */
+  text-decoration: none;
+  background-color: var(--light-color);
+  color: var(--secondary-color);
+  width: fit-content;
+  padding: 0.5rem;
+}
+
+article:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-7px);
+}
+
+/* form styles */
+
+/* Form Container */
+form {
+  background-color: var(--light-color);
+  padding: 2rem;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  max-width: 500px; /* Limit form width for better readability */
+  width: 100%;
+  margin: 0 auto; /* Center the form horizontally */
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+form:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover); /* Add a stronger shadow on hover */
+}
+
+/* Form Labels */
+form label {
+  display: block;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+footer {
+  background: rgb(167, 139, 250);
+  background: linear-gradient(
+    90deg,
+    rgba(167, 139, 250, 1) 10%,
+    rgba(213, 141, 141, 1) 100%
+  );
+  color: var(--light-color);
+  text-align: center;
+  padding: 8rem 1rem 1rem 1rem;
+  position: relative; /* Ensure footer is positioned correctly */
+  z-index: 2; /* Ensure footer is above other elements */
+}
+
+/* Form Inputs and Textareas */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form textarea,
+form select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form textarea:focus,
+form select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Form Textarea */
+form textarea {
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 150px; /* Set a minimum height */
+}
+
+/* Form Select Dropdown */
+form select {
+  appearance: none; /* Remove default arrow */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+}
+
+/* Form Buttons */
+form button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: var(--primary-color-dark); /* Darker shade on hover */
+}
+
+/* Form Field Group (Optional) */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Form Validation Styles (Optional) */
+form input:invalid,
+form textarea:invalid {
+  border-color: #ff6b6b; /* Red border for invalid fields */
+}
+
+form input:valid,
+form textarea:valid {
+  border-color: #4caf50; /* Green border for valid fields */
 }
