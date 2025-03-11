@@ -5,24 +5,45 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Outfit", sans-serif;
+  line-height: 1.6;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  margin: 1rem;
+}
+
 :root {
   --primary-color: #f28fa0;
   --secondary-color: #d6d7dc;
   --dark-color: #333;
   --light-color: #f4f4f4;
 }
-
+/* navigation styles */
 nav {
   display: flex;
   gap: 1rem;
   border: 1px solid var(--color-primary);
-  background: var(--color-primary-x-light);
   padding: 1rem 1.5rem;
   align-items: center;
+  position: sticky;
+  top: 0%;
+  z-index: 10; /* Ensure nav is above other elements */
+  background-color: var(--light-color);
 }
 nav p {
   font-weight: bolder;
   font-size: 1.5rem;
+  color: var(--primary-color);
 }
 nav ul {
   display: flex;
@@ -49,6 +70,7 @@ header {
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   background-attachment: fixed;
+  z-index: 1; /* Ensure header is below nav */
 }
 
 header h1 {
@@ -79,5 +101,5 @@ header h1 {
 }
 
 .custom-shape-divider-bottom-1741683656 .shape-fill {
-  fill: #ffffff;
+  fill: var(--light-color);
 }
