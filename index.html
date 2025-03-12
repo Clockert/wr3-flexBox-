@@ -138,46 +138,95 @@
           ></path>
         </svg>
       </div>
-      <h2>Contact Us</h2>
-      <form action="#" method="POST">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Enter your name"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Enter your email"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="subject">Subject</label>
-          <select id="subject" name="subject" required>
-            <option value="" disabled selected>Select a subject</option>
-            <option value="Contact">Contact</option>
-            <option value="feedback">Feedback</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Enter your message"
-            required
-          ></textarea>
-        </div>
+
+      <form action="#" method="POST" aria-labelledby="form-title">
+        <h2 id="form-title">Contact Us</h2>
+
+        <fieldset>
+          <legend class="visually-hidden">Personal Information</legend>
+          <div class="form-group">
+            <label for="name" class="required">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              required
+              aria-required="true"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email" class="required">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+              aria-required="true"
+            />
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend class="visually-hidden">Message Details</legend>
+          <div class="form-group">
+            <label for="subject" class="required">Subject</label>
+            <select id="subject" name="subject" required aria-required="true">
+              <option value="" disabled selected>Select a subject</option>
+              <option value="contact">Contact</option>
+              <option value="feedback">Feedback</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message" class="required">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Enter your message"
+              required
+              aria-required="true"
+            ></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Contact Preferences</legend>
+          <div class="form-group">
+            <div
+              class="radio-group"
+              role="radiogroup"
+              aria-labelledby="contact-method"
+            >
+              <p id="contact-method" class="required visually-hidden">
+                Preferred Contact Method:
+              </p>
+              <div>
+                <input
+                  type="radio"
+                  id="emailContact"
+                  name="contactMethod"
+                  value="email"
+                  required
+                />
+                <label for="emailContact">Email</label>
+                <input
+                  type="radio"
+                  id="phoneContact"
+                  name="contactMethod"
+                  value="phone"
+                />
+                <label for="phoneContact">Phone</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group checkbox-group">
+            <input type="checkbox" id="subscribe" name="subscribe" />
+            <label for="subscribe">Subscribe to newsletter</label>
+          </div>
+        </fieldset>
+
         <button type="submit">Submit</button>
       </form>
       <p class="footer-text">@Charlotte Iselin Lockert</p>

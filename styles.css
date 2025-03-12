@@ -7,18 +7,33 @@
 
 /* Root Variables */
 :root {
+  /* Colors */
   --primary-color: #c05454;
   --secondary-color: #764bf7;
   --dark-color: #3f306a;
   --light-color: #f9f9f9;
-  --border: 0.1rem solid var(--dark-color);
+  --error-color: #ff6b6b;
+  --success-color: #4caf50;
+  --focus-color: #f18f17;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Layout */
   --border-radius: 2rem;
+  --container-width: 31.25rem;
+
+  /* Effects */
   --shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.3);
   --transition: all 0.2s ease;
-  --focus-color: #ffbf47;
+  --focus-outline: 0.2rem solid #f18f17;
 }
 
-/* Global Styles */
+/* Base Styles */
 body {
   font-family: "Outfit", sans-serif;
   line-height: 1.6;
@@ -26,9 +41,29 @@ body {
   color: var(--dark-color);
 }
 
+/* Typography */
+h1,
+h2,
+h3 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+}
+
 p {
   font-size: 1.4rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Focus States */
+:focus,
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: var(--focus-outline);
+  outline-offset: 0.15rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
 }
 
 button {
@@ -36,26 +71,48 @@ button {
   background-color: var(--light-color);
   color: var(--primary-color);
   border: none;
-  padding: 1rem 1.5rem;
-  border-radius: 10rem;
-  margin: 1rem;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  margin: var(--spacing-sm);
   transition: var(--transition);
   font-size: 1rem;
   font-weight: 600;
   box-shadow: var(--shadow);
+  width: fit-content;
 }
+
 button:hover {
   background-color: var(--primary-color);
   color: var(--light-color);
   transform: rotate(2deg) scale(1.1);
 }
-button:focus,
-a:focus,
-input:focus,
-textarea:focus,
-select:focus {
-  outline: 0.125rem solid var(--focus-color);
-  outline-offset: 0.125rem;
+
+
+/* Accessibility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);s
+  border: 0;
+}
+
+
+/* Form Labels */
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Required Fields */
+.required::after {
+  content: "*";
+  color: var(--error-color);
+  margin-left: var(--spacing-xs);
 }
 
 /* Navigation Styles */
@@ -122,7 +179,7 @@ header {
 }
 header h1 {
   font-size: 3rem;
-  color: var (--light-color);
+  color: var(--light-color);
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -262,7 +319,9 @@ article:hover {
 }
 .cards article i {
   font-size: 2rem; /* Adjust the size of the icons */
-  color: var(--light-color); /* Set the color of the icons */
+  color: var(
+    --light-color
+  ); /* Fixed: Removed space between var and parenthesis */
   margin-bottom: 2rem; /* Add some space below the icons */
 }
 
@@ -274,89 +333,140 @@ footer {
     var(--primary-color) 100%
   );
   color: var(--light-color);
-  text-align: center;
-  padding: 8rem 1rem 1rem 1rem;
-  position: relative; /* Ensure footer is positioned correctly */
-  z-index: 2; /* Ensure footer is above other elements */
+  padding: 10rem 1rem 3rem 1rem;
+  position: relative;
+  z-index: 2;
 }
+
 .footer-text {
   margin-top: 2rem;
   font-size: 1rem;
   color: var(--light-color);
   text-align: center;
+  opacity: 0.9;
 }
 
-/* Form Styles */
-form {
-  background-color: var(--light-color);
-  padding: 2rem;
+/* Form Styles - Footer Integration */
+footer form {
+  background-color: rgba(249, 249, 249, 0.6);
+  padding: var(--spacing-lg);
   border-radius: var(--border-radius);
-  max-width: 31.25rem; /* Limit form width for better readability */
-  width: 100%;
-  margin: 0 auto; /* Center the form horizontally */
+  max-width: var(--container-width);
+  margin: auto;
   box-shadow: var(--shadow);
 }
-form label {
-  display: block;
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-}
-form input[type="text"],
-form input[type="email"],
-form input[type="password"],
-form textarea,
-form select {
-  width: 100%;
-  padding: 0.75rem;
+
+/* Form title */
+footer form h2 {
+  margin-top: 0;
   margin-bottom: 1.5rem;
-  border: var(--border);
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* Form Elements - Base Styles */
+footer form label {
+  display: block;
+  color: var(--dark-color);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: left;
+  font-family: "Outfit", sans-serif;
+}
+
+/* Input Fields */
+footer form input[type="text"],
+footer form input[type="email"],
+footer form input[type="password"],
+footer form textarea,
+footer form select {
+  width: 100%;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+  border: 0.1rem solid var(--dark-color);
   border-radius: var(--border-radius);
   color: var(--dark-color);
-  background-color: var(--background-color);
-  transition: border-color 0.3s ease;
+  background-color: var(--light-color);
+  transition: var(--transition);
+  line-height: 1.5;
+  font-family: "Outfit", sans-serif;
   font-size: 1rem;
 }
-form input[type="text"]:focus,
-form input[type="email"]:focus,
-form input[type="password"]:focus,
-form textarea:focus,
-form select:focus {
-  border-color: var(--secondary-color);
-  border: solid 0.125rem var(--secondary-color);
-  outline: 0.125rem solid var(--focus-color); /* Focus outline */
-  outline-offset: 0.125rem;
+
+/* Textarea Specific */
+footer form textarea {
+  resize: vertical;
+  min-height: 9rem;
 }
-form textarea {
-  resize: vertical; /* Allow vertical resizing */
-  min-height: 9.375rem;
-}
-form select {
-  appearance: none; /* Remove default arrow */
+
+/* Select Styling */
+footer form select {
+  appearance: none;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
-  background-size: 2rem;
-  border: 0.0625rem solid var(--primary-color);
-}
-form button {
-  background-color: var(--primary-color);
-  color: var(--light-color);
-  border: none;
-  padding: 1rem 1.5rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-form button:hover {
-  background-color: var(--secondary-color);
+  background-size: 1.25rem;
+  padding-right: 2.5rem; /* Space for the dropdown arrow */
 }
 
-/* Form Validation Styles (Optional) */
-form input:invalid,
-form textarea:invalid {
-  border-color: #ff6b6b; /* Red border for invalid fields */
+/* Checkbox group styles */
+footer form .checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: var(--spacing-md);
 }
-form input:valid,
-form textarea:valid {
-  border-color: #4caf50; /* Green border for valid fields */
+
+footer form .checkbox-group label {
+  margin: 0;
+  display: inline;
+  font-weight: normal;
+}
+
+/* Radio group styles */
+footer form .radio-group div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+footer form .radio-group div label {
+  display: inline;
+  margin: 0;
+  font-weight: normal;
+}
+
+/* Form Button */
+footer form button {
+  background: var(--secondary-color);
+  color: var(--light-color);
+  display: block;
+  margin: 0 auto;
+}
+/* Fieldset styles */
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+legend {
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+}
+
+/* Error message styles */
+.error-message {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Form validation */
+form input:not(:placeholder-shown):invalid {
+  border-color: var(--error-color);
 }
