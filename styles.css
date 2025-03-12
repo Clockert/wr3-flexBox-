@@ -8,7 +8,7 @@
 /* Root Variables */
 :root {
   /* Colors */
-  --primary-color: #c05454;
+  --primary-color: #ad4646;
   --secondary-color: #764bf7;
   --dark-color: #3f306a;
   --light-color: #f9f9f9;
@@ -28,7 +28,7 @@
   --container-width: 31.25rem;
 
   /* Effects */
-  --shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.3);
+  --shadow: 0 0.125rem 0.3125rem rgba(0, 0.3, 0.3, 0.3);
   --transition: all 0.2s ease;
   --focus-outline: 0.2rem solid #f18f17;
 }
@@ -88,32 +88,7 @@ button:hover {
 }
 
 
-/* Accessibility */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);s
-  border: 0;
-}
 
-
-/* Form Labels */
-label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: var(--spacing-xs);
-}
-
-/* Required Fields */
-.required::after {
-  content: "*";
-  color: var(--error-color);
-  margin-left: var(--spacing-xs);
-}
 
 /* Navigation Styles */
 nav {
@@ -153,10 +128,7 @@ nav ul li a {
 nav ul li a:hover {
   color: var(--primary-color);
 }
-nav ul li a:focus {
-  outline: 0.125rem solid var(--focus-color); /* Focus outline */
-  outline-offset: 0.125rem;
-}
+
 ul:nth-child(2) {
   margin-inline-start: auto;
 }
@@ -182,13 +154,11 @@ header h1 {
   color: var(--light-color);
   text-align: center;
   text-transform: uppercase;
-  margin-bottom: 1rem;
   text-shadow: var(--shadow);
 }
 header p {
   color: var(--light-color);
   text-align: center;
-  margin-bottom: 1rem;
 }
 #portrait {
   width: 40vh;
@@ -257,25 +227,25 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%; /* Ensure section takes full width */
+  width: 100%; 
 }
 section h2 {
   font-size: 2rem;
   color: var(--primary-color);
   margin-bottom: 1rem;
-  text-align: center; /* Center text horizontally */
+  text-align: center; 
 }
 .textarea p {
   color: var(--dark-color);
-  text-align: center; /* Center text horizontally */
+  text-align: center; 
 }
 
 /* Card Styles */
 .cards {
   display: flex;
   flex-wrap: wrap; /* Allows items to wrap to the next line */
-  gap: 3rem; /* Adds spacing between items */
-  justify-content: center; /* Centers items horizontally */
+  gap: var(--spacing-xl); 
+  justify-content: center; 
   align-items: stretch; /* Ensures all cards in a row have the same height */
   width: 100%; /* Ensure container takes full width */
 }
@@ -286,7 +256,7 @@ article {
   display: flex;
   flex-direction: column;
   transition: var(--transition), transform 0.3s ease;
-  width: 18.75rem; /* Fixed width for all cards */
+  width: 18rem; /* width for all cards */
   flex-grow: 1; /* Allows cards to grow if there's extra space */
   height: auto; /* Allows cards to stretch to the same height */
   overflow: hidden; /* Hides overflowing content */
@@ -302,7 +272,6 @@ article p {
   margin-bottom: 1rem;
 }
 article a {
-  margin-top: auto; /* Pushes the button to the bottom */
   text-decoration: none;
   background-color: var(--light-color);
   color: var(--secondary-color);
@@ -321,7 +290,7 @@ article:hover {
   font-size: 2rem; /* Adjust the size of the icons */
   color: var(
     --light-color
-  ); /* Fixed: Removed space between var and parenthesis */
+  ); 
   margin-bottom: 2rem; /* Add some space below the icons */
 }
 
@@ -339,7 +308,7 @@ footer {
 }
 
 .footer-text {
-  margin-top: 2rem;
+  margin-top: 5rem;
   font-size: 1rem;
   color: var(--light-color);
   text-align: center;
@@ -393,6 +362,15 @@ footer form select {
   line-height: 1.5;
   font-family: "Outfit", sans-serif;
   font-size: 1rem;
+}
+
+/* Input hover effects */
+footer form input:hover,
+footer form textarea:hover,
+footer form select:hover {
+  border: 0.3rem solid var(--secondary-color);
+  box-shadow: var(--shadow);
+  transform: translateY(-1px);
 }
 
 /* Textarea Specific */
@@ -469,4 +447,25 @@ legend {
 /* Form validation */
 form input:not(:placeholder-shown):invalid {
   border-color: var(--error-color);
+}
+
+/* Accessibility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);s
+  border: 0;
+}
+
+
+
+/* Required Fields */
+.required::after {
+  content: "*";
+  color: var(--error-color);
+  margin-left: var(--spacing-xs);
 }
