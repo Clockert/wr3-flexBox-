@@ -21,7 +21,7 @@ button {
   border-radius: 10rem;
   margin: 1rem;
   transition: var(--transition);
-  font-size: medium;
+  font-size: 1rem; /* Changed from medium to 1rem */
   font-weight: 600;
   box-shadow: var(--shadow);
 }
@@ -33,23 +33,24 @@ button:hover {
 
 p {
   font-size: 1.4rem;
+  margin-bottom: 1.5rem;
 }
 
 :root {
-  --primary-color: #d58d8d;
-  --secondary-color: #a78bfa;
+  --primary-color: #c05454;
+  --secondary-color: #764bf7;
   --dark-color: #3f306a;
   --light-color: #f9f9f9;
-  --border: 1px solid var(--dark-color);
-  --border-radius: 15px;
-  --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --border: 0.1rem solid var(--dark-color);
+  --border-radius: 2rem;
+  --shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.3);
   --transition: all 0.2s ease;
+  --focus-color: #ffbf47; /* Add a focus color */
 }
 /* navigation styles */
 nav {
   display: flex;
   gap: 1rem;
-  border: 1px solid var(--dark-color);
   padding: 1rem 1.5rem;
   justify-content: space-between; /* Ensure space between logo and nav items */
   align-items: center; /* Ensure items are centered vertically */
@@ -69,7 +70,7 @@ nav ul {
   display: flex;
   gap: 1rem;
   list-style: none;
-  font-size: large;
+  font-size: 1.25rem; /* Changed from large to 1.25rem */
   font-weight: 600;
   margin: 0; /* Remove any default margin */
   padding: 0; /* Remove any default padding */
@@ -78,21 +79,50 @@ nav ul {
 nav ul li a {
   text-decoration: none;
   color: var(--secondary-color);
+  padding: 0.5rem; /* Add padding for better focus area */
 }
 
 ul:nth-child(2) {
   margin-inline-start: auto;
+}
+nav ul li a:hover {
+  color: var(--primary-color);
+}
+
+/* hero styles */
+
+#portrait {
+  width: 40vh;
+  height: 40vh;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  animation: float 3s ease-in-out infinite;
+  transition: border-color 1.5s ease;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: scale(0.98) translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 header {
   background: rgb(167, 139, 250);
   background: linear-gradient(
     90deg,
-    rgba(167, 139, 250, 1) 10%,
-    rgba(213, 141, 141, 1) 100%
+    var(--secondary-color) 10%,
+    var(--primary-color) 100%
   );
   background-size: cover;
-  height: 80vh;
+  height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -107,6 +137,7 @@ header h1 {
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 1rem;
+  text-shadow: var(--shadow);
 }
 header p {
   color: var(--light-color);
@@ -114,7 +145,7 @@ header p {
   margin-bottom: 1rem;
 }
 
-/* Custom Shape Divider */
+/* Custom Shape Divider Hero */
 
 .custom-shape-divider-bottom-1741683656 {
   position: absolute;
@@ -129,13 +160,15 @@ header p {
 .custom-shape-divider-bottom-1741683656 svg {
   position: relative;
   display: block;
-  width: calc(113% + 1.3px);
-  height: 68px;
+  width: calc(113% + 0.08125rem);
+  height: 4.25rem;
 }
 
 .custom-shape-divider-bottom-1741683656 .shape-fill {
   fill: var(--light-color);
 }
+
+/* footer divider */
 
 .custom-shape-divider-top-1741692508 {
   position: absolute;
@@ -150,8 +183,8 @@ header p {
 .custom-shape-divider-top-1741692508 svg {
   position: relative;
   display: block;
-  width: calc(113% + 1.3px);
-  height: 68px;
+  width: calc(113% + 0.08125rem);
+  height: 6.25rem;
 }
 
 .custom-shape-divider-top-1741692508 .shape-fill {
@@ -195,16 +228,17 @@ article {
   display: flex;
   flex-direction: column;
   transition: var(--transition), transform 0.3s ease;
-  width: 300px; /* Fixed width for all cards */
+  width: 18.75rem; /* Fixed width for all cards */
   flex-grow: 1; /* Allows cards to grow if there's extra space */
   height: auto; /* Allows cards to stretch to the same height */
   overflow: hidden; /* Hides overflowing content */
+  box-shadow: var(--shadow);
 }
 
 article h3 {
   font-size: 1.5rem;
   color: var(--light-color);
-  margin-bottom: 1rem;
+  text-shadow: var(--shadow);
 }
 
 article p {
@@ -219,31 +253,49 @@ article a {
   color: var(--secondary-color);
   width: fit-content;
   padding: 0.5rem;
+  box-shadow: var(--shadow);
 }
 
 article:hover {
   box-shadow: var(--shadow);
-  transform: translateY(-7px);
+  transform: translateY(-0.4375rem);
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  transform: rotate(2deg) scale(1.1);
 }
 
-/* form styles */
+/* styles for Font Awesome icons in the cards */
+.cards article i {
+  font-size: 2rem; /* Adjust the size of the icons */
+  color: var(--light-color); /* Set the color of the icons */
+  margin-bottom: 2rem; /* Add some space below the icons */
+}
+
+/* footer styles */
+
+footer {
+  background: rgb(167, 139, 250);
+  background: linear-gradient(
+    90deg,
+    var(--secondary-color) 10%,
+    var(--primary-color) 100%
+  );
+  color: var(--light-color);
+  text-align: center;
+  padding: 8rem 1rem 1rem 1rem;
+  position: relative; /* Ensure footer is positioned correctly */
+  z-index: 2; /* Ensure footer is above other elements */
+}
 
 /* Form Container */
 form {
   background-color: var(--light-color);
   padding: 2rem;
-  border: var(--border);
   border-radius: var(--border-radius);
-  max-width: 500px; /* Limit form width for better readability */
+  max-width: 31.25rem; /* Limit form width for better readability */
   width: 100%;
   margin: 0 auto; /* Center the form horizontally */
   box-shadow: var(--shadow);
-  transition: var(--transition);
-}
-
-form:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-hover); /* Add a stronger shadow on hover */
 }
 
 /* Form Labels */
@@ -252,20 +304,6 @@ form label {
   color: var(--primary-color);
   margin-bottom: 0.5rem;
   font-weight: bold;
-}
-
-footer {
-  background: rgb(167, 139, 250);
-  background: linear-gradient(
-    90deg,
-    rgba(167, 139, 250, 1) 10%,
-    rgba(213, 141, 141, 1) 100%
-  );
-  color: var(--light-color);
-  text-align: center;
-  padding: 8rem 1rem 1rem 1rem;
-  position: relative; /* Ensure footer is positioned correctly */
-  z-index: 2; /* Ensure footer is above other elements */
 }
 
 /* Form Inputs and Textareas */
@@ -279,9 +317,10 @@ form select {
   margin-bottom: 1.5rem;
   border: var(--border);
   border-radius: var(--border-radius);
-  color: var(--text-color);
+  color: var(--dark-color);
   background-color: var(--background-color);
   transition: border-color 0.3s ease;
+  font-size: 1rem; /* Changed from medium to 1rem */
 }
 
 form input[type="text"]:focus,
@@ -289,14 +328,16 @@ form input[type="email"]:focus,
 form input[type="password"]:focus,
 form textarea:focus,
 form select:focus {
-  border-color: var(--primary-color);
-  outline: none;
+  border-color: var(--secondary-color);
+  border: solid 0.125rem var(--secondary-color);
+  outline: 0.125rem solid var(--focus-color); /* Add focus outline */
+  outline-offset: 0.125rem;
 }
 
 /* Form Textarea */
 form textarea {
   resize: vertical; /* Allow vertical resizing */
-  min-height: 150px; /* Set a minimum height */
+  min-height: 9.375rem;
 }
 
 /* Form Select Dropdown */
@@ -305,27 +346,19 @@ form select {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
-  background-size: 1rem;
+  background-size: 2rem;
+  border: 0.0625rem solid var(--primary-color);
 }
-
-/* Form Buttons */
 form button {
   background-color: var(--primary-color);
-  color: white;
-  padding: 0.75rem 1.5rem;
+  color: var(--light-color);
   border: none;
-  border-radius: var(--border-radius);
+  padding: 1rem 1.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 form button:hover {
-  background-color: var(--primary-color-dark); /* Darker shade on hover */
-}
-
-/* Form Field Group (Optional) */
-.form-group {
-  margin-bottom: 1.5rem;
+  background-color: var (--secondary-color);
 }
 
 /* Form Validation Styles (Optional) */
@@ -337,4 +370,13 @@ form textarea:invalid {
 form input:valid,
 form textarea:valid {
   border-color: #4caf50; /* Green border for valid fields */
+}
+
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 0.125rem solid var(--focus-color); /* Add focus outline */
+  outline-offset: 0.125rem;
 }
