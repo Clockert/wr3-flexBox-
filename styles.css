@@ -5,11 +5,30 @@
   box-sizing: border-box;
 }
 
+/* Root Variables */
+:root {
+  --primary-color: #c05454;
+  --secondary-color: #764bf7;
+  --dark-color: #3f306a;
+  --light-color: #f9f9f9;
+  --border: 0.1rem solid var(--dark-color);
+  --border-radius: 2rem;
+  --shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.3);
+  --transition: all 0.2s ease;
+  --focus-color: #ffbf47;
+}
+
+/* Global Styles */
 body {
   font-family: "Outfit", sans-serif;
   line-height: 1.6;
   background-color: var(--light-color);
   color: var(--dark-color);
+}
+
+p {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
 }
 
 button {
@@ -21,7 +40,7 @@ button {
   border-radius: 10rem;
   margin: 1rem;
   transition: var(--transition);
-  font-size: 1rem; /* Changed from medium to 1rem */
+  font-size: 1rem;
   font-weight: 600;
   box-shadow: var(--shadow);
 }
@@ -30,30 +49,22 @@ button:hover {
   color: var(--light-color);
   transform: rotate(2deg) scale(1.1);
 }
-
-p {
-  font-size: 1.4rem;
-  margin-bottom: 1.5rem;
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 0.125rem solid var(--focus-color);
+  outline-offset: 0.125rem;
 }
 
-:root {
-  --primary-color: #c05454;
-  --secondary-color: #764bf7;
-  --dark-color: #3f306a;
-  --light-color: #f9f9f9;
-  --border: 0.1rem solid var(--dark-color);
-  --border-radius: 2rem;
-  --shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.3);
-  --transition: all 0.2s ease;
-  --focus-color: #ffbf47; /* Add a focus color */
-}
-/* navigation styles */
+/* Navigation Styles */
 nav {
   display: flex;
   gap: 1rem;
   padding: 1rem 1.5rem;
-  justify-content: space-between; /* Ensure space between logo and nav items */
-  align-items: center; /* Ensure items are centered vertically */
+  justify-content: space-between; /* Space between logo and nav items */
+  align-items: center; /* Center items vertically */
   position: sticky;
   top: 0%;
   z-index: 10; /* Ensure nav is above other elements */
@@ -64,58 +75,37 @@ nav {
   font-weight: bolder;
   font-size: 1.5rem;
   color: var(--primary-color);
-  margin: 0; /* Remove any default margin */
+  margin: 0;
+  text-transform: uppercase;
 }
 nav ul {
   display: flex;
   gap: 1rem;
   list-style: none;
-  font-size: 1.25rem; /* Changed from large to 1.25rem */
+  font-size: 1.25rem;
   font-weight: 600;
-  margin: 0; /* Remove any default margin */
-  padding: 0; /* Remove any default padding */
+  margin: 0;
+  padding: 0;
 }
-
 nav ul li a {
   text-decoration: none;
   color: var(--secondary-color);
-  padding: 0.5rem; /* Add padding for better focus area */
-}
-
-ul:nth-child(2) {
-  margin-inline-start: auto;
+  padding: 0.5rem; /* Padding for better focus area */
+  outline: none;
 }
 nav ul li a:hover {
   color: var(--primary-color);
 }
-
-/* hero styles */
-
-#portrait {
-  width: 40vh;
-  height: 40vh;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 50%;
-  box-shadow: var(--shadow);
-  animation: float 3s ease-in-out infinite;
-  transition: border-color 1.5s ease;
+nav ul li a:focus {
+  outline: 0.125rem solid var(--focus-color); /* Focus outline */
+  outline-offset: 0.125rem;
+}
+ul:nth-child(2) {
+  margin-inline-start: auto;
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: scale(0.98) translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
+/* Hero Styles */
 header {
-  background: rgb(167, 139, 250);
   background: linear-gradient(
     90deg,
     var(--secondary-color) 10%,
@@ -130,10 +120,9 @@ header {
   align-items: center; /* Center vertically */
   z-index: 1; /* Ensure header is below nav */
 }
-
 header h1 {
   font-size: 3rem;
-  color: var(--light-color);
+  color: var (--light-color);
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -144,9 +133,29 @@ header p {
   text-align: center;
   margin-bottom: 1rem;
 }
+#portrait {
+  width: 40vh;
+  height: 40vh;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  animation: float 3s ease-in-out infinite;
+  transition: border-color 1.5s ease;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: scale(0.98) translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 
-/* Custom Shape Divider Hero */
-
+/* Custom Shape Divider */
 .custom-shape-divider-bottom-1741683656 {
   position: absolute;
   bottom: 0;
@@ -156,20 +165,15 @@ header p {
   line-height: 0;
   transform: rotate(180deg);
 }
-
 .custom-shape-divider-bottom-1741683656 svg {
   position: relative;
   display: block;
   width: calc(113% + 0.08125rem);
   height: 4.25rem;
 }
-
 .custom-shape-divider-bottom-1741683656 .shape-fill {
   fill: var(--light-color);
 }
-
-/* footer divider */
-
 .custom-shape-divider-top-1741692508 {
   position: absolute;
   top: 0;
@@ -179,18 +183,17 @@ header p {
   line-height: 0;
   z-index: 1; /* Ensure shape divider is below footer content */
 }
-
 .custom-shape-divider-top-1741692508 svg {
   position: relative;
   display: block;
   width: calc(113% + 0.08125rem);
   height: 6.25rem;
 }
-
 .custom-shape-divider-top-1741692508 .shape-fill {
   fill: var(--light-color);
 }
 
+/* Section Styles */
 section {
   padding: 10rem 2rem;
   display: flex;
@@ -199,19 +202,18 @@ section {
   align-items: center;
   width: 100%; /* Ensure section takes full width */
 }
-
 section h2 {
   font-size: 2rem;
   color: var(--primary-color);
   margin-bottom: 1rem;
   text-align: center; /* Center text horizontally */
 }
-
 .textarea p {
   color: var(--dark-color);
   text-align: center; /* Center text horizontally */
 }
 
+/* Card Styles */
 .cards {
   display: flex;
   flex-wrap: wrap; /* Allows items to wrap to the next line */
@@ -220,7 +222,6 @@ section h2 {
   align-items: stretch; /* Ensures all cards in a row have the same height */
   width: 100%; /* Ensure container takes full width */
 }
-
 article {
   background-color: var(--secondary-color);
   padding: 2rem;
@@ -234,18 +235,15 @@ article {
   overflow: hidden; /* Hides overflowing content */
   box-shadow: var(--shadow);
 }
-
 article h3 {
   font-size: 1.5rem;
   color: var(--light-color);
   text-shadow: var(--shadow);
 }
-
 article p {
   color: var(--light-color);
   margin-bottom: 1rem;
 }
-
 article a {
   margin-top: auto; /* Pushes the button to the bottom */
   text-decoration: none;
@@ -255,7 +253,6 @@ article a {
   padding: 0.5rem;
   box-shadow: var(--shadow);
 }
-
 article:hover {
   box-shadow: var(--shadow);
   transform: translateY(-0.4375rem);
@@ -263,18 +260,14 @@ article:hover {
   color: var(--light-color);
   transform: rotate(2deg) scale(1.1);
 }
-
-/* styles for Font Awesome icons in the cards */
 .cards article i {
   font-size: 2rem; /* Adjust the size of the icons */
   color: var(--light-color); /* Set the color of the icons */
   margin-bottom: 2rem; /* Add some space below the icons */
 }
 
-/* footer styles */
-
+/* Footer Styles */
 footer {
-  background: rgb(167, 139, 250);
   background: linear-gradient(
     90deg,
     var(--secondary-color) 10%,
@@ -286,8 +279,14 @@ footer {
   position: relative; /* Ensure footer is positioned correctly */
   z-index: 2; /* Ensure footer is above other elements */
 }
+.footer-text {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: var(--light-color);
+  text-align: center;
+}
 
-/* Form Container */
+/* Form Styles */
 form {
   background-color: var(--light-color);
   padding: 2rem;
@@ -297,16 +296,12 @@ form {
   margin: 0 auto; /* Center the form horizontally */
   box-shadow: var(--shadow);
 }
-
-/* Form Labels */
 form label {
   display: block;
   color: var(--primary-color);
   margin-bottom: 0.5rem;
   font-weight: bold;
 }
-
-/* Form Inputs and Textareas */
 form input[type="text"],
 form input[type="email"],
 form input[type="password"],
@@ -320,9 +315,8 @@ form select {
   color: var(--dark-color);
   background-color: var(--background-color);
   transition: border-color 0.3s ease;
-  font-size: 1rem; /* Changed from medium to 1rem */
+  font-size: 1rem;
 }
-
 form input[type="text"]:focus,
 form input[type="email"]:focus,
 form input[type="password"]:focus,
@@ -330,17 +324,13 @@ form textarea:focus,
 form select:focus {
   border-color: var(--secondary-color);
   border: solid 0.125rem var(--secondary-color);
-  outline: 0.125rem solid var(--focus-color); /* Add focus outline */
+  outline: 0.125rem solid var(--focus-color); /* Focus outline */
   outline-offset: 0.125rem;
 }
-
-/* Form Textarea */
 form textarea {
   resize: vertical; /* Allow vertical resizing */
   min-height: 9.375rem;
 }
-
-/* Form Select Dropdown */
 form select {
   appearance: none; /* Remove default arrow */
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
@@ -358,7 +348,7 @@ form button {
   transition: background-color 0.3s ease;
 }
 form button:hover {
-  background-color: var (--secondary-color);
+  background-color: var(--secondary-color);
 }
 
 /* Form Validation Styles (Optional) */
@@ -366,17 +356,7 @@ form input:invalid,
 form textarea:invalid {
   border-color: #ff6b6b; /* Red border for invalid fields */
 }
-
 form input:valid,
 form textarea:valid {
   border-color: #4caf50; /* Green border for valid fields */
-}
-
-button:focus,
-a:focus,
-input:focus,
-textarea:focus,
-select:focus {
-  outline: 0.125rem solid var(--focus-color); /* Add focus outline */
-  outline-offset: 0.125rem;
 }
