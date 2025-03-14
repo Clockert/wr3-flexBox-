@@ -1,39 +1,40 @@
-/* Reset */
+/* Global Reset - Ensure consistent styling across browsers */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Root Variables */
+/* Design System Variables 
+   Centralized configuration for colors, spacing, and effects */
 :root {
-  /* Colors */
-  --primary-color: #ad4646;
-  --secondary-color: #764bf7;
-  --dark-color: #3f306a;
-  --light-color: #f9f9f9;
-  --error-color: #ff6b6b;
-  --success-color: #4caf50;
-  --focus-color: #f18f17;
+  /* Brand Colors */
+  --primary-color: #ad4646; /* Main brand color - used for primary actions */
+  --secondary-color: #764bf7; /* Accent color - used for secondary elements */
+  --dark-color: #3f306a; /* Text and dark elements */
+  --light-color: #f9f9f9; /* Background and light elements */
+  --error-color: #ff6b6b; /* Error states and required fields */
+  --success-color: #4caf50; /* Success states */
+  --focus-color: #f18f17; /* Accessibility focus indicators */
 
-  /* Spacing */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 3rem;
+  /* Consistent Spacing Scale */
+  --spacing-xs: 0.5rem; /* Tight spacing - used for small gaps */
+  --spacing-sm: 1rem; /* Default spacing */
+  --spacing-md: 1.5rem; /* Medium spacing - used for sections */
+  --spacing-lg: 2rem; /* Large spacing - used for major sections */
+  --spacing-xl: 3rem; /* Extra large spacing - used for page sections */
 
-  /* Layout */
+  /* Layout Components */
   --border-radius: 2rem;
   --container-width: 31.25rem;
 
-  /* Effects */
+  /* Visual Effects */
   --shadow: 0 0.125rem 0.3125rem rgba(0, 0.3, 0.3, 0.3);
   --transition: all 0.2s ease;
   --focus-outline: 0.2rem solid #f18f17;
 }
 
-/* Base Styles */
+/* Base Typography and Document Settings */
 body {
   font-family: "Outfit", sans-serif;
   line-height: 1.6;
@@ -54,7 +55,8 @@ p {
   margin-bottom: var(--spacing-md);
 }
 
-/* Focus States */
+/* Interactive Elements */
+/* Focus states for accessibility */
 :focus,
 button:focus,
 a:focus,
@@ -66,6 +68,7 @@ select:focus {
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
 }
 
+/* Button Base Styles */
 button {
   cursor: pointer;
   background-color: var(--light-color);
@@ -87,7 +90,7 @@ button:hover {
   transform: rotate(2deg) scale(1.1);
 }
 
-/* Navigation Styles */
+/* Navigation Layout and Styling */
 nav {
   display: flex;
   gap: 1rem;
@@ -130,7 +133,7 @@ ul:nth-child(2) {
   margin-inline-start: auto;
 }
 
-/* Hero Styles */
+/* Hero Section - Main Banner Area */
 header {
   background: linear-gradient(
     90deg,
@@ -168,6 +171,7 @@ header p {
   transition: border-color 1.5s ease;
 }
 @keyframes float {
+  /* Smooth floating animation for interactive elements */
   0% {
     transform: translateY(0);
   }
@@ -179,7 +183,7 @@ header p {
   }
 }
 
-/* Custom Shape Divider */
+/* Decorative Elements - Wave Shapes */
 .custom-shape-divider-bottom-1741683656 {
   position: absolute;
   bottom: 0;
@@ -217,7 +221,7 @@ header p {
   fill: var(--light-color);
 }
 
-/* Section Styles */
+/* Content Section Layout */
 section {
   padding: 10rem 2rem;
   display: flex;
@@ -237,7 +241,7 @@ section h2 {
   text-align: center;
 }
 
-/* Card Styles */
+/* Card Grid and Individual Cards */
 .cards {
   display: flex;
   flex-wrap: wrap; /* Allows items to wrap to the next line */
@@ -289,7 +293,7 @@ article:hover {
   margin-bottom: 2rem; /* Add some space below the icons */
 }
 
-/* Footer Styles */
+/* Footer Layout and Background */
 footer {
   background: linear-gradient(
     90deg,
@@ -310,6 +314,7 @@ footer {
   opacity: 0.9;
 }
 
+/* Form Components and Validation */
 /* Form Styles - Footer Integration */
 footer form {
   background-color: rgba(249, 249, 249, 0.6);
@@ -445,8 +450,9 @@ form input:not(:placeholder-shown):invalid {
   border-color: var(--error-color);
 }
 
-/* Accessibility */
+/* Accessibility Helpers */
 .visually-hidden {
+  /* Hide content visually while keeping it accessible to screen readers */
   position: absolute;
   width: 1px;
   height: 1px;
@@ -464,7 +470,9 @@ form input:not(:placeholder-shown):invalid {
   margin-left: var(--spacing-xs);
 }
 
+/* Dialog and Modal Styling */
 .success-overlay {
+  /* Dialog positioning and layout */
   padding: 0;
   border: none;
   border-radius: var(--border-radius);
@@ -493,6 +501,7 @@ form input:not(:placeholder-shown):invalid {
 }
 
 @keyframes pop-in {
+  /* Pop-in animation for dialog/modal */
   0% {
     transform: scale(0.5);
     opacity: 0;

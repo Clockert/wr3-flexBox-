@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta tags for proper character encoding and responsive viewport -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <!-- Stylesheets: Custom CSS, Google Fonts, and Font Awesome -->
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
@@ -16,7 +19,7 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <!-- Navigation -->
+    <!-- Primary Navigation -->
     <nav aria-label="Main navigation">
       <p id="logo">Logo</p>
       <ul>
@@ -25,7 +28,7 @@
       </ul>
     </nav>
     <main>
-      <!-- Hero section -->
+      <!-- Hero Section: Introduction and Profile Image -->
       <header>
         <img
           id="portrait"
@@ -69,7 +72,8 @@
           </svg>
         </div>
       </header>
-      <!-- About section -->
+
+      <!-- About Section: Information Cards -->
       <section id="about">
         <div class="textarea">
           <h2>Section</h2>
@@ -120,8 +124,10 @@
           </article>
         </div>
       </section>
-      <!-- Footer -->
+
+      <!-- Footer: Contact Form and Copyright -->
       <footer>
+        <!-- Decorative Wave Shape -->
         <div class="custom-shape-divider-top-1741692508">
           <svg
             data-name="Layer 1"
@@ -147,6 +153,7 @@
           </svg>
         </div>
 
+        <!-- Contact Form -->
         <form
           id="contactForm"
           action="#"
@@ -265,9 +272,13 @@
 
           <button type="submit">Submit</button>
         </form>
+
+        <!-- Copyright Information -->
         <p class="footer-text">@Charlotte Iselin Lockert</p>
       </footer>
     </main>
+
+    <!-- Success Message Dialog -->
     <dialog
       class="success-overlay"
       id="successOverlay"
@@ -276,9 +287,7 @@
       role="dialog"
       aria-modal="true"
     >
-      <div class="success-message" id="success-content">
-        <!-- Content will be dynamically inserted by JavaScript -->
-      </div>
+      <div class="success-message" id="success-content"></div>
     </dialog>
   </body>
 </html>
