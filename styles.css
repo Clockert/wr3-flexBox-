@@ -50,7 +50,7 @@ h3 {
 }
 
 p {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   margin-bottom: var(--spacing-md);
 }
 
@@ -86,9 +86,6 @@ button:hover {
   color: var(--light-color);
   transform: rotate(2deg) scale(1.1);
 }
-
-
-
 
 /* Navigation Styles */
 nav {
@@ -227,25 +224,25 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%; 
+  width: 100%;
 }
 section h2 {
   font-size: 2rem;
   color: var(--primary-color);
   margin-bottom: 1rem;
-  text-align: center; 
+  text-align: center;
 }
 .textarea p {
   color: var(--dark-color);
-  text-align: center; 
+  text-align: center;
 }
 
 /* Card Styles */
 .cards {
   display: flex;
   flex-wrap: wrap; /* Allows items to wrap to the next line */
-  gap: var(--spacing-xl); 
-  justify-content: center; 
+  gap: var(--spacing-xl);
+  justify-content: center;
   align-items: stretch; /* Ensures all cards in a row have the same height */
   width: 100%; /* Ensure container takes full width */
 }
@@ -288,9 +285,7 @@ article:hover {
 }
 .cards article i {
   font-size: 2rem; /* Adjust the size of the icons */
-  color: var(
-    --light-color
-  ); 
+  color: var(--light-color);
   margin-bottom: 2rem; /* Add some space below the icons */
 }
 
@@ -417,8 +412,9 @@ footer form .radio-group div label {
   font-weight: normal;
 }
 
-/* Form Button */
-footer form button {
+/* Form and success close Button */
+footer form button,
+.close-button {
   background: var(--secondary-color);
   color: var(--light-color);
   display: block;
@@ -457,15 +453,75 @@ form input:not(:placeholder-shown):invalid {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);s
+  clip: rect(0, 0, 0, 0);
   border: 0;
 }
-
-
 
 /* Required Fields */
 .required::after {
   content: "*";
   color: var(--error-color);
   margin-left: var(--spacing-xs);
+}
+
+.success-overlay {
+  padding: 0;
+  border: none;
+  border-radius: var(--border-radius);
+  background: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  max-width: 90vw; /* Prevent overflow on mobile */
+  max-height: 90vh; /* Prevent overflow on mobile */
+}
+
+.success-overlay::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.success-message {
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-xl);
+  text-align: center;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.success-icon {
+  font-size: 70px;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.submission-details {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.9);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  margin: var(--spacing-md) 0;
+}
+
+.submission-details p {
+  margin-bottom: var(--spacing-xs);
+  font-size: 1rem;
+}
+
+.submission-details strong {
+  color: var(--primary-color);
 }
