@@ -16,7 +16,7 @@
   </head>
   <body>
     <!-- Navigation -->
-    <nav>
+    <nav aria-label="Main navigation">
       <p id="logo">Logo</p>
       <ul>
         <li><a href="#top">Home</a></li>
@@ -36,7 +36,13 @@
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
           quos.
         </p>
-        <button>Learn More</button>
+        <button
+          onclick="location.href='#about'"
+          class="button"
+          aria-label="Learn more button"
+        >
+          Learn More
+        </button>
         <div class="custom-shape-divider-bottom-1741683656">
           <svg
             data-name="Layer 1"
@@ -140,7 +146,7 @@
           </svg>
         </div>
 
-        <form action="#" method="POST" aria-labelledby="form-title">
+        <form action="#" method="POST" aria-labelledby="form-title" role="form">
           <h2 id="form-title">Contact Us</h2>
 
           <fieldset>
@@ -154,7 +160,11 @@
                 placeholder="Enter your name"
                 required
                 aria-required="true"
+                aria-describedby="name-description"
               />
+              <span id="name-description" class="visually-hidden"
+                >Please enter your full name</span
+              >
             </div>
             <div class="form-group">
               <label for="email" class="required">Email</label>
@@ -165,7 +175,11 @@
                 placeholder="Enter your email"
                 required
                 aria-required="true"
+                aria-describedby="email-description"
               />
+              <span id="email-description" class="visually-hidden"
+                >Please enter a valid email address</span
+              >
             </div>
           </fieldset>
 
@@ -173,12 +187,21 @@
             <legend class="visually-hidden">Message Details</legend>
             <div class="form-group">
               <label for="subject" class="required">Subject</label>
-              <select id="subject" name="subject" required aria-required="true">
+              <select
+                id="subject"
+                name="subject"
+                required
+                aria-required="true"
+                aria-describedby="subject-description"
+              >
                 <option value="" disabled selected>Select a subject</option>
                 <option value="contact">Contact</option>
                 <option value="feedback">Feedback</option>
                 <option value="other">Other</option>
               </select>
+              <span id="subject-description" class="visually-hidden"
+                >Choose the subject of your message</span
+              >
             </div>
             <div class="form-group">
               <label for="message" class="required">Message</label>
@@ -188,7 +211,11 @@
                 placeholder="Enter your message"
                 required
                 aria-required="true"
+                aria-describedby="message-description"
               ></textarea>
+              <span id="message-description" class="visually-hidden"
+                >Please enter your message</span
+              >
             </div>
           </fieldset>
 
@@ -199,6 +226,7 @@
                 class="radio-group"
                 role="radiogroup"
                 aria-labelledby="contact-method"
+                aria-describedby="contact-method-description"
               >
                 <p id="contact-method" class="required visually-hidden">
                   Preferred Contact Method:
